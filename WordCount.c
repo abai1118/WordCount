@@ -20,6 +20,7 @@ int wCount(char *file){
 		previous = a;
 	}
 	printf("word number:%d",w+1);
+	fclose(fp);
 	
 } 
 int cCount(char *file){
@@ -32,6 +33,7 @@ int cCount(char *file){
 		c++;
 	}
 	printf("char number:%d",c);
+	fclose(fp);
 }
 int main(int argc, char* argv[]){
 		if(!strcmp(argv[1],"-w")) { 
