@@ -6,13 +6,20 @@ int wCount(char *file){
 	fp = fopen(file,"r");
 	int w = 0;
 	char a;
+	char previous = ' ';
 	while(!feof(fp)){
 		a = fgetc(fp);
+		
 		if (a == ' ' || a == ','){
 			w++;
+			if(previous ==' '||previous == ','){
+				w--;
+			}
 		}
+		
+		previous = a;
 	}
-	printf("µ¥´ÊÊý£º%d",w+1);
+	printf("word number:%d",w+1);
 	
 } 
 int cCount(char *file){
@@ -24,7 +31,7 @@ int cCount(char *file){
 		a = fgetc(fp);
 		c++;
 	}
-	printf("×Ö·ûÊý£º%d",c);
+	printf("char number:%d",c);
 }
 int main(int argc, char* argv[]){
 		if(!strcmp(argv[1],"-w")) { 
